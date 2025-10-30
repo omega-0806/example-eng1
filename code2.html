@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Warning — Do Not Open Anonymous Links (Simulation)</title>
+  <style>
+    :root{--bg:#0b1220;--card:#0f1724;--accent:#e11d48;--muted:#9aa4b2;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,Arial;background:linear-gradient(180deg,#041024 0%, #082033 60%);color:#e6eef6}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px}
+    .card{width:920px;max-width:95%;background:linear-gradient(180deg,var(--card),#071226);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+    .header{display:flex;gap:18px;align-items:center}
+    .sig{width:86px;height:86px;border-radius:12px;background:radial-gradient(circle at 25% 25%, rgba(255,255,255,0.06), transparent 25%),linear-gradient(120deg,#2b050d,#5b0016);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:#fff}
+    h1{margin:0;font-size:22px;letter-spacing:-0.4px}
+    p.lead{margin:8px 0 0;color:var(--muted)}
+    .big{margin-top:22px;display:flex;gap:22px}
+    .left{flex:1}
+    .notice{background:linear-gradient(90deg, rgba(225,29,72,0.09), rgba(225,29,72,0.03));padding:16px;border-radius:10px;border:1px solid rgba(225,29,72,0.12)}
+    .notice h2{margin:0;color:var(--accent);font-size:20px}
+    .notice p{margin:8px 0 0;color:var(--muted)}
+    .actions{margin-top:14px;display:flex;gap:12px}
+    button{padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+    .btn-safe{background:rgba(14,165,233,0.12);color:#aee7ff}
+    .btn-learn{background:rgba(255,255,255,0.04);color:#e6eef6}
+    .btn-report{background:rgba(255,255,255,0.02);color:var(--muted)}
+    .right{width:360px;max-width:40%;background:var(--glass);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    ul.tips{padding-left:18px;margin:10px 0 0;color:var(--muted)}
+    .footer{margin-top:18px;color:#9aa4b2;font-size:13px}
+    .disclaimer{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;font-size:13px;color:#cbd7e6}
+    details{margin-top:10px}
+    pre{background:#061226;padding:12px;border-radius:8px;overflow:auto;color:#cfe8ff}
+    @media(max-width:880px){.big{flex-direction:column}.right{max-width:100%;width:100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="title">
+      <div class="header">
+        <div class="sig">SEC</div>
+        <div>
+          <h1 id="title">SIMULATED ALERT — Unauthorized / Anonymous Link Detected</h1>
+          <p class="lead">This page is a <strong>simulation</strong> created to teach people why they should not open anonymous links. Do not use to intimidate or impersonate real incidents.</p>
+        </div>
+      </div>
+
+      <div class="big">
+        <div class="left">
+          <div class="notice" id="notice">
+            <h2>Do NOT open anonymous links</h2>
+            <p>Anonymous or unexpected links can contain malware, credential-stealers, or trackers. Attackers may also exfiltrate and sell personal data on illicit marketplaces.</p>
+            <div class="actions">
+              <button class="btn-safe" id="btnClose">Return to safety</button>
+              <button class="btn-learn" id="btnLearn">How to stay safe</button>
+              <button class="btn-report" id="btnReport">Report this link</button>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div class="disclaimer"><strong>Educational use only:</strong> This page is a mock alert for awareness campaigns and training. Do not deploy it to impersonate real security teams, scare people, or trick recipients.</div>
+            <details>
+              <summary style="margin-top:10px;cursor:pointer">Why this matters</summary>
+              <p style="margin:8px 0;color:var(--muted)">Even a single click on a malicious link can install software that steals passwords, records keystrokes, or gives remote access to your device. Data stolen may later appear for sale in underground markets.</p>
+            </details>
+
+          </div>
+        </div>
+
+        <aside class="right" aria-label="Tips and quick actions">
+          <h3 style="margin:0 0 8px 0">Quick safety tips</h3>
+          <ul class="tips">
+            <li>Don't click links from unknown senders.</li>
+            <li>Hover to preview URLs; look for misspellings or strange domains.</li>
+            <li>Keep OS and antivirus up to date.</li>
+            <li>Use unique passwords + a password manager.</li>
+            <li>Enable multi-factor authentication where possible.</li>
+          </ul>
+
+          <details>
+            <summary style="margin-top:12px;cursor:pointer">Example: suspicious URL patterns</summary>
+            <pre>http://paypal-secure-login[.]xyz
+https://bit[.]ly/evade-abc
+http://login.google.com.verify.security.example</pre>
+          </details>
+
+          <div style="margin-top:12px;font-size:13px;color:var(--muted)">Want a printable one-page poster for awareness? Save the page or paste the HTML into a file named <code>alert.html</code> and upload where your audience can see it.</div>
+        </aside>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script>
+    // Minimal interaction - purely client-side
+    document.getElementById('btnClose').addEventListener('click', ()=>{
+      // Simulate leaving - navigate to a safe search page locally (about:blank) to avoid external calls
+      location.href = 'about:blank';
+    });
+
+    document.getElementById('btnLearn').addEventListener('click', ()=>{
+      const notice = document.getElementById('notice');
+      // Expand the notice to include extra learning material
+      if(!notice.classList.contains('expanded')){
+        const more = document.createElement('div');
+        more.innerHTML = '<hr style="border:none;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);margin:12px 0">'
+          +'<p style="color:var(--muted);margin:8px 0 0">If you suspect a link is malicious: do not enter credentials, disconnect from the network, and run a malware scan. Contact your IT/security team if available.</p>';
+        notice.appendChild(more);
+        notice.classList.add('expanded');
+      }
+    });
+
+    document.getElementById('btnReport').addEventListener('click', ()=>{
+      // Open a mailto link prefilled; user can change address - avoids automatic network calls
+      const subject = encodeURIComponent('Suspicious link report');
+      const body = encodeURIComponent('I found a suspicious link and want to report it. Please advise. (This is a mock report from a training page.)');
+      location.href = 'mailto:security@example.com?subject='+subject+'&body='+body;
+    });
+
+    // Accessibility: focus the first actionable button
+    document.getElementById('btnClose').focus();
+  </script>
+</body>
+</html>
